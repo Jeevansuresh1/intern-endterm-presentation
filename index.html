@@ -251,22 +251,22 @@
   <h2>The Portal: Architecture & Deployment</h2>
   <p>Built on Red Hat Developer Hub (RHDH), the enterprise distribution of Backstage by Red Hat. Gives teams a single place to discover collections, launch job templates, and manage automation. Open source upstream: github.com/ansible/ansible-backstage-plugins</p>
   <div class="reveal-item">
-    <h3 style="color:var(--rh-blue);">5 Coordinated Repositories</h3>
+    <h3 style="color:var(--rh-green);">Execution Environment (EE) Builder</h3>
+    <p style="font-size:0.92em; margin-bottom:6px;">A core portal feature that lets users build custom Ansible Execution Environments from the UI without writing Dockerfiles.</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;">
+      <div style="font-size:0.88em; background:var(--rh-gray-bg); border-radius:8px; padding:10px 12px; border-top:3px solid var(--rh-green);"><strong style="color:var(--rh-green);">Visual EE Definition</strong><br>Select base image, add Python packages, system packages, and Ansible collections through a guided form.</div>
+      <div style="font-size:0.88em; background:var(--rh-gray-bg); border-radius:8px; padding:10px 12px; border-top:3px solid var(--rh-teal);"><strong style="color:var(--rh-teal);">Build & Push</strong><br>Generates execution-environment.yml, builds the container image using ansible-builder, and pushes to a configured registry.</div>
+      <div style="font-size:0.88em; background:var(--rh-gray-bg); border-radius:8px; padding:10px 12px; border-top:3px solid var(--rh-blue);"><strong style="color:var(--rh-blue);">Live Build Logs</strong><br>Real-time streaming build output in the portal. Users can track image build progress, debug failures, and verify successful pushes.</div>
+    </div>
+  </div>
+  <div class="reveal-item">
+    <h3 style="color:var(--rh-blue); margin-top:14px;">5 Coordinated Repositories</h3>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px 30px; margin-top:6px;">
       <div style="font-size:0.95em;"><strong style="font-family:'Red Hat Mono',monospace; color:var(--rh-red-dark);">ansible-backstage-plugins</strong> upstream plugins source code (open source)</div>
       <div style="font-size:0.95em;"><strong style="font-family:'Red Hat Mono',monospace; color:var(--rh-red-dark);">ansible-rhdh-plugins</strong> downstream Konflux CI, OCI image builds</div>
       <div style="font-size:0.95em;"><strong style="font-family:'Red Hat Mono',monospace; color:var(--rh-red-dark);">ansible-portal-chart</strong> Helm chart for OpenShift deployment</div>
       <div style="font-size:0.95em;"><strong style="font-family:'Red Hat Mono',monospace; color:var(--rh-red-dark);">bootc-container</strong> RHEL appliance VM images (QCOW2, VMDK)</div>
       <div style="font-size:0.95em;"><strong style="font-family:'Red Hat Mono',monospace; color:var(--rh-red-dark);">ansible-portal-test-suite</strong> integration tests (ATF framework)</div>
-    </div>
-  </div>
-  <div class="reveal-item">
-    <h3 style="color:var(--rh-green); margin-top:14px;">Execution Environment (EE) Builder</h3>
-    <p style="font-size:0.92em; margin-bottom:6px;">A core portal feature that lets users build custom Ansible Execution Environments from the UI without writing Dockerfiles.</p>
-    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;">
-      <div style="font-size:0.88em; background:var(--rh-gray-bg); border-radius:8px; padding:10px 12px; border-top:3px solid var(--rh-green);"><strong style="color:var(--rh-green);">Visual EE Definition</strong><br>Select base image, add Python packages, system packages, and Ansible collections through a guided form.</div>
-      <div style="font-size:0.88em; background:var(--rh-gray-bg); border-radius:8px; padding:10px 12px; border-top:3px solid var(--rh-teal);"><strong style="color:var(--rh-teal);">Build & Push</strong><br>Generates execution-environment.yml, builds the container image using ansible-builder, and pushes to a configured registry.</div>
-      <div style="font-size:0.88em; background:var(--rh-gray-bg); border-radius:8px; padding:10px 12px; border-top:3px solid var(--rh-blue);"><strong style="color:var(--rh-blue);">Live Build Logs</strong><br>Real-time streaming build output in the portal. Users can track image build progress, debug failures, and verify successful pushes.</div>
     </div>
   </div>
   <div class="reveal-item">
