@@ -656,6 +656,7 @@
     <div class="help-row"><span>First slide</span><span class="help-key">Home</span></div>
     <div class="help-row"><span>Last slide</span><span class="help-key">End</span></div>
     <div class="help-row"><span>Toggle help</span><span class="help-key">?</span></div>
+    <div class="help-row"><span>Toggle fullscreen</span><span class="help-key">F</span></div>
     <p style="margin-top:16px; font-size:0.85em; color:var(--rh-gray-mid); text-align:center;">Press any key to close</p>
   </div>
 </div>
@@ -664,6 +665,7 @@
 <div class="nav">
   <button onclick="prevSlide()" aria-label="Previous">&larr;</button>
   <button onclick="nextSlide()" aria-label="Next">&rarr;</button>
+  <button onclick="toggleFullscreen()" aria-label="Fullscreen" id="fsBtn" style="font-size:1em;">&#x26F6;</button>
 </div>
 <div class="slide-counter" id="counter">1 / 15</div>
 
@@ -732,6 +734,18 @@
     if (e.key === 'ArrowDown') { e.preventDefault(); revealAll(current); }
     if (e.key === 'Home') { e.preventDefault(); current = 1; revealIndex = {}; showSlide(current); }
     if (e.key === 'End') { e.preventDefault(); current = total; revealIndex = {}; showSlide(current); revealAll(current); }
+    if (e.key === 'f' || e.key === 'F') { e.preventDefault(); toggleFullscreen(); }
+  });
+
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  }
+  document.addEventListener('fullscreenchange', function() {
+    document.getElementById('fsBtn').innerHTML = document.fullscreenElement ? '&#x2716;' : '&#x26F6;';
   });
 
   function openLightbox(src) {
